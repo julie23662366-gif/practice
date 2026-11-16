@@ -1,0 +1,944 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>외국인 친구 서울 안내 영어</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&family=Noto+Sans+KR:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F5EEDC; --card:#FBF7EC; --line:#E2D5B8;
+  --brown:#5C3D2E; --green:#2F4F3A; --soft:#8A6A58; --milk:#D9C4A0; --olive:#55633F;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:var(--bg)}
+body{
+  font-family:'Noto Sans KR',system-ui,sans-serif;color:var(--brown);
+  font-size:16px;line-height:1.6;word-break:keep-all;overflow-wrap:break-word;
+  -webkit-text-size-adjust:100%;
+}
+button{font-family:inherit;cursor:pointer}
+button:disabled{opacity:.4;cursor:default}
+.wrap{max-width:1180px;margin:0 auto;padding:0 24px 64px}
+
+/* ===== 홈 상단 갈색 띠 ===== */
+.top{
+  background:var(--brown);color:var(--card);
+  box-shadow:0 0 0 100vmax var(--brown);clip-path:inset(0 -100vmax);
+  padding:26px 0 24px;margin-bottom:30px;
+}
+.top-row{display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:14px;min-width:0}
+.logo{width:56px;height:56px;border-radius:50%;background:var(--green);flex:none;display:grid;place-items:center;
+  border:2px solid rgba(251,247,236,.35)}
+.logo svg{width:32px;height:32px}
+.brand h1{font-size:31px;font-weight:800;line-height:1.25;letter-spacing:-.5px}
+.brand p{font-size:16px;opacity:.85;margin-top:2px}
+.top-btns{display:flex;gap:8px;flex-wrap:wrap}
+.tbtn{
+  height:42px;padding:0 14px;border-radius:12px;white-space:nowrap;
+  background:transparent;color:var(--card);border:1.5px solid var(--card);
+  font-size:16px;font-weight:600;display:inline-flex;align-items:center;gap:6px;
+  transition:transform .18s ease, background .18s ease;
+}
+.tbtn:hover{background:rgba(251,247,236,.12);transform:translateY(-2px)}
+.badge{display:inline-grid;place-items:center;min-width:24px;height:24px;padding:0 7px;border-radius:999px;
+  background:var(--card);color:var(--brown);font-size:14px;font-weight:800;line-height:1}
+
+
+/* ===== 홈: 가이드 명찰 (시안 B) ===== */
+.hero{background:var(--green);box-shadow:0 0 0 100vmax var(--green);clip-path:inset(0 -100vmax);
+  padding:0 0 72px;display:flex;align-items:flex-end;gap:56px}
+.badgewrap{width:520px;flex:none}
+.strap{width:70px;height:34px;border-left:10px solid var(--milk);border-right:10px solid var(--milk);margin:0 auto}
+.badgecard{position:relative;background:var(--card);border-radius:20px;padding:24px 28px;display:flex;align-items:center;gap:16px;
+  box-shadow:0 10px 24px rgba(0,0,0,.18)}
+.badgecard::before{content:'';position:absolute;top:7px;left:50%;margin-left:-22px;width:44px;height:8px;border-radius:99px;background:var(--milk)}
+.badgecard .logo{width:68px;height:68px;border:0}
+.badgecard .logo svg{width:38px;height:38px}
+.bk-eye{font-family:'Google Sans','Noto Sans KR',sans-serif;font-size:13px;font-weight:700;letter-spacing:2px;color:var(--olive)}
+.badgecard h1{font-size:28px;font-weight:800;line-height:1.25}
+.bk-hi{font-family:'Google Sans','Noto Sans KR',sans-serif;font-size:18px;font-weight:500;color:var(--soft);margin-top:4px}
+.hero-text{color:var(--card);padding-bottom:20px}
+.hero-text h2{font-size:34px;font-weight:800;line-height:1.3}
+.hero-text p{font-size:17px;opacity:.88;margin-top:8px}
+.tiles{display:flex;gap:16px;margin-top:-44px;position:relative;z-index:1}
+.tile{flex:1 1 0;display:flex;align-items:center;gap:14px;padding:18px 20px;background:var(--card);border:1.5px solid var(--line);
+  border-radius:18px;box-shadow:0 8px 20px rgba(47,79,58,.14);text-align:left;color:var(--brown);min-width:0;
+  transition:transform .2s ease, box-shadow .2s ease}
+.tile:hover{transform:translateY(-4px);box-shadow:0 14px 26px rgba(47,79,58,.22)}
+.tile .ic{position:relative;width:46px;height:46px;border-radius:50%;background:var(--green);color:var(--card);display:grid;place-items:center;flex:none}
+.tile .ic svg{width:22px;height:22px}
+.tile .num{position:absolute;top:-6px;right:-8px;min-width:24px;height:24px;padding:0 6px;border-radius:999px;background:var(--brown);
+  color:var(--card);font-size:13px;font-weight:800;display:grid;place-items:center;line-height:1}
+.tile b{display:block;font-size:18px;font-weight:800;white-space:nowrap}
+.tile small{display:block;font-size:15px;color:var(--soft)}
+.intro{margin-top:32px}
+@media (hover:none){.tile:hover{transform:none;box-shadow:0 8px 20px rgba(47,79,58,.14)}}
+@media (max-width:820px){
+  .hero{flex-direction:column;align-items:stretch;gap:0;padding-bottom:58px}
+  .badgewrap{width:auto}
+  .hero-text{display:none}
+}
+@media (max-width:640px){
+  .strap{height:26px}
+  .badgecard{padding:18px 20px}
+  .badgecard .logo{width:56px;height:56px}
+  .badgecard .logo svg{width:32px;height:32px}
+  .badgecard h1{font-size:22px}
+  .bk-hi{font-size:16px}
+  .tiles{gap:8px;margin-top:-40px}
+  .tile{flex-direction:column;gap:6px;padding:14px 4px;text-align:center}
+  .tile b{font-size:16px}
+  .tile small{display:none}
+  .intro{margin-top:24px}
+}
+
+/* ===== 홈 소개 ===== */
+.intro{margin:36px 0 22px}
+.intro h2{font-size:24px;font-weight:800}
+.intro p{color:var(--soft);font-size:17px;margin-top:4px}
+
+/* ===== 테마 카드 ===== */
+.themes{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:18px;align-items:start}
+.tcard{
+  display:flex;gap:16px;align-items:center;text-align:left;width:100%;
+  background:var(--card);border:1.5px solid var(--line);border-radius:18px;padding:20px;color:var(--brown);
+  transition:transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+}
+.tcard:hover{transform:translateY(-4px);box-shadow:0 10px 22px rgba(92,61,46,.13);border-color:var(--brown)}
+.tcard .ico{width:84px;height:84px;flex:none}
+.tcard .num{font-size:14px;font-weight:700;color:var(--green)}
+.tcard h3{font-size:21px;font-weight:800;line-height:1.3}
+.tcard .en{font-family:'Google Sans','Noto Sans KR',sans-serif;font-size:16px;color:var(--soft);font-weight:500}
+.tcard .desc{font-size:16px;color:var(--soft);margin-top:4px;line-height:1.5}
+.tcard .count{display:inline-block;margin-top:8px;font-size:14px;font-weight:700;color:var(--green);
+  border:1.5px solid var(--green);border-radius:999px;padding:1px 10px}
+
+/* ===== 하위 화면 머리 ===== */
+.thead{display:flex;align-items:center;gap:16px;padding:22px 0 20px;border-bottom:1.5px solid var(--line);margin-bottom:22px;flex-wrap:wrap}
+.back{
+  height:42px;padding:0 14px;border-radius:12px;background:var(--card);color:var(--brown);
+  border:1.5px solid var(--brown);font-size:16px;font-weight:700;white-space:nowrap;
+  transition:transform .18s ease, box-shadow .18s ease;
+}
+.back:hover{transform:translateY(-2px);box-shadow:0 6px 14px rgba(92,61,46,.15)}
+.thead .ico{width:64px;height:64px;flex:none}
+.thead h2{font-size:27px;font-weight:800;line-height:1.25}
+.thead .en{font-family:'Google Sans','Noto Sans KR',sans-serif;color:var(--soft);font-size:17px;font-weight:500}
+.ttitle{flex:1;min-width:200px}
+.bigemo{width:64px;height:64px;border-radius:50%;background:var(--card);border:2px solid var(--brown);display:grid;place-items:center;font-size:30px;flex:none}
+
+/* ===== 문장 카드 ===== */
+.sents{display:grid;grid-template-columns:repeat(auto-fill,minmax(360px,1fr));gap:18px;align-items:start}
+.scard{
+  background:var(--card);border:1.5px solid var(--line);border-radius:18px;padding:20px 20px 18px;
+  transition:transform .2s ease, box-shadow .2s ease, border-color .2s ease, opacity .35s ease;
+}
+.scard:hover{transform:translateY(-4px);box-shadow:0 10px 22px rgba(92,61,46,.12)}
+.scard.speaking{border-color:var(--green);box-shadow:0 0 0 2px var(--green)}
+.scard.leaving{opacity:0;transform:scale(.96)}
+.scard .no{font-size:14px;font-weight:700;color:var(--green)}
+.scard .eng{font-family:'Google Sans','Noto Sans KR',sans-serif;font-weight:700;font-size:29px;line-height:1.3;
+  color:var(--brown);margin:4px 0 8px;word-break:normal}
+.scard .ko{font-size:18px;color:var(--soft);line-height:1.5}
+.acts{display:flex;gap:8px;margin-top:16px;flex-wrap:wrap}
+.abtn{
+  height:42px;padding:0 14px;border-radius:12px;background:var(--card);
+  font-size:16px;font-weight:700;display:inline-flex;align-items:center;gap:6px;white-space:nowrap;
+  transition:transform .18s ease, box-shadow .18s ease, background .18s ease;
+}
+.abtn svg{width:20px;height:20px;flex:none}
+.abtn.listen,.abtn.fav{color:var(--brown);border:1.5px solid var(--brown)}
+.abtn.rec{color:var(--green);border:1.5px solid var(--green)}
+.abtn:hover{transform:translateY(-2px);box-shadow:0 6px 12px rgba(92,61,46,.15)}
+.abtn.on{background:var(--green);border-color:var(--green);color:var(--card)}
+.abtn.fav.saved{background:var(--brown);color:var(--card)}
+.abtn.small{height:36px;padding:0 10px;font-size:15px;border-radius:10px}
+
+/* ===== 녹음 결과 ===== */
+.result{margin-top:14px;border-top:1.5px dashed var(--line);padding-top:14px}
+.result[hidden]{display:none}
+.listening{display:flex;align-items:center;gap:12px;font-weight:700;color:var(--green);font-size:17px}
+.bars{display:flex;gap:4px;align-items:center;height:28px}
+.bars i{width:5px;height:8px;border-radius:3px;background:var(--green);animation:wave 1s ease-in-out infinite}
+.bars i:nth-child(2){animation-delay:.12s}.bars i:nth-child(3){animation-delay:.24s}
+.bars i:nth-child(4){animation-delay:.36s}.bars i:nth-child(5){animation-delay:.48s}
+@keyframes wave{0%,100%{height:8px}50%{height:26px}}
+.scorebox{display:flex;align-items:center;gap:14px;margin:12px 0 6px}
+.score{font-family:'Google Sans','Noto Sans KR',sans-serif;font-size:44px;font-weight:700;color:var(--green);line-height:1}
+.barwrap{flex:1;height:12px;border-radius:99px;background:var(--line);overflow:hidden}
+.barwrap i{display:block;height:100%;background:var(--green);border-radius:99px;transition:width .6s ease}
+.cheer{font-size:17px;font-weight:700;margin-bottom:8px}
+.words{font-family:'Google Sans','Noto Sans KR',sans-serif;font-size:21px;line-height:1.8;word-break:normal}
+.words .ok{color:var(--green);font-weight:700}
+.words .miss{color:var(--brown);text-decoration:underline wavy #B5603F;text-underline-offset:5px;text-decoration-thickness:2px}
+.heard{font-size:15px;color:var(--soft);margin-top:6px}
+.legend{font-size:14px;color:var(--soft);margin-top:2px}
+.errbox{background:#F7EDE4;border:1.5px solid #D9B9A3;border-radius:12px;padding:12px 14px;font-size:16px;line-height:1.6}
+
+/* ===== AI 선생님 ===== */
+.ai{margin-top:14px;border:2px solid var(--green);border-radius:14px;padding:14px 16px;background:#F7F5EA}
+.ai h4{font-size:17px;font-weight:800;color:var(--green);margin-bottom:8px}
+.ai .sec{margin-top:10px}
+.ai .sec b.t{display:block;font-size:15px;color:var(--green);margin-bottom:3px}
+.ai .sec p{font-size:16px;line-height:1.6}
+.ai .wbtns{display:flex;flex-wrap:wrap;gap:6px;margin-top:4px}
+.alt{display:flex;align-items:flex-start;gap:8px;padding:6px 0;border-bottom:1px dashed var(--line)}
+.alt:last-child{border-bottom:0}
+.alt .ae{font-family:'Google Sans','Noto Sans KR',sans-serif;font-weight:700;font-size:17px;word-break:normal}
+.alt .ak{font-size:15px;color:var(--soft)}
+.alt .abtn{flex:none}
+.ai .muted{color:var(--soft);font-size:15px}
+.spin{display:inline-block;width:16px;height:16px;border:2.5px solid var(--line);border-top-color:var(--green);border-radius:50%;animation:sp 1s linear infinite;vertical-align:-3px;margin-right:6px}
+@keyframes sp{to{transform:rotate(360deg)}}
+.ai a,.link{color:var(--green);font-weight:700}
+
+/* ===== 즐겨찾기 화면 ===== */
+.group{margin-bottom:30px}
+.ghead{display:flex;align-items:center;gap:10px;margin-bottom:12px}
+.ghead .ico{width:40px;height:40px}
+.ghead h3{font-size:20px;font-weight:800}
+.empty{background:var(--card);border:1.5px dashed var(--line);border-radius:18px;padding:40px 20px;text-align:center}
+.empty p{font-size:18px;margin-bottom:6px}
+.empty .sub{color:var(--soft);font-size:16px;margin-bottom:18px}
+.pbtn{height:46px;padding:0 20px;border-radius:12px;background:var(--brown);color:var(--card);border:0;font-size:17px;font-weight:700;
+  transition:transform .18s ease, box-shadow .18s ease}
+.pbtn:hover{transform:translateY(-2px);box-shadow:0 6px 14px rgba(92,61,46,.2)}
+.pbtn.green{background:var(--green)}
+.obtn{height:42px;padding:0 14px;border-radius:12px;background:var(--card);color:var(--brown);border:1.5px solid var(--brown);font-size:16px;font-weight:700;white-space:nowrap;
+  transition:transform .18s ease}
+.obtn:hover{transform:translateY(-2px)}
+
+/* ===== 달력 ===== */
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:20px}
+.stat{background:var(--card);border:1.5px solid var(--line);border-radius:16px;padding:14px;text-align:center}
+.stat b{display:block;font-family:'Google Sans','Noto Sans KR',sans-serif;font-size:32px;color:var(--green);line-height:1.2}
+.stat span{font-size:15px;color:var(--soft)}
+.cal{background:var(--card);border:1.5px solid var(--line);border-radius:18px;padding:18px;max-width:620px;margin:0 auto}
+.calnav{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}
+.calnav h3{font-size:22px;font-weight:800}
+.calnav button{width:44px;height:42px;border-radius:12px;border:1.5px solid var(--brown);background:var(--card);color:var(--brown);font-size:20px;font-weight:700}
+.grid7{display:grid;grid-template-columns:repeat(7,1fr);gap:6px}
+.dow{text-align:center;font-size:14px;font-weight:700;color:var(--soft);padding:4px 0}
+.dow.sun{color:#B5603F}
+.day{aspect-ratio:1;border-radius:12px;display:flex;flex-direction:column;align-items:center;justify-content:center;font-size:16px;font-weight:600;
+  border:1.5px solid transparent;background:transparent;color:var(--brown);position:relative}
+.day.blank{visibility:hidden}
+.day.done{background:var(--green);color:var(--card)}
+.day.done svg{width:16px;height:16px;margin-top:1px}
+.day.today{border-color:var(--brown);border-width:2.5px}
+.calnote{text-align:center;color:var(--soft);font-size:15px;margin-top:14px}
+
+/* ===== 설정 ===== */
+.panel{background:var(--card);border:1.5px solid var(--line);border-radius:18px;padding:22px;margin-bottom:20px}
+.panel h3{font-size:21px;font-weight:800;margin-bottom:4px}
+.panel .help{color:var(--soft);font-size:16px;margin-bottom:14px}
+.krow{display:flex;gap:8px;flex-wrap:wrap}
+.krow input{flex:1;min-width:220px;height:46px;border-radius:12px;border:1.5px solid var(--line);background:#fff;padding:0 14px;font-size:16px;color:var(--brown);font-family:inherit}
+.krow input:focus{outline:2px solid var(--green);border-color:var(--green)}
+.status{margin-top:12px;font-size:16px;font-weight:600}
+.status.good{color:var(--green)}
+.status.bad{color:#9A4A2E}
+.vlist{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:12px;margin-top:16px;align-items:start}
+.vcard{border:1.5px solid var(--line);border-radius:14px;padding:14px;background:#fff;transition:transform .2s ease, box-shadow .2s ease}
+.vcard:hover{transform:translateY(-3px);box-shadow:0 8px 18px rgba(92,61,46,.12)}
+.vcard.sel{border-color:var(--green);box-shadow:0 0 0 2px var(--green)}
+.vcard h4{font-family:'Google Sans','Noto Sans KR',sans-serif;font-size:19px;font-weight:700}
+.vcard .vmeta{font-size:15px;color:var(--soft);margin:2px 0 10px}
+.vcard .krow{gap:6px}
+.nowvoice{margin-top:4px;font-size:16px}
+.note{font-size:15px;color:var(--soft);line-height:1.7}
+.note li{margin-left:20px}
+
+/* ===== 알림 ===== */
+.toast{position:fixed;left:50%;bottom:26px;transform:translate(-50%,20px);opacity:0;pointer-events:none;
+  background:var(--green);color:var(--card);padding:12px 20px;border-radius:14px;font-size:16px;font-weight:600;
+  max-width:calc(100% - 32px);text-align:center;transition:all .25s ease;z-index:50;box-shadow:0 8px 20px rgba(0,0,0,.15)}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+.tip{margin-top:26px;color:var(--soft);font-size:16px;text-align:center}
+
+/* 터치 기기에서는 떠오름 효과 끄기 */
+@media (hover:none){
+  .tcard:hover,.scard:hover,.abtn:hover,.tbtn:hover,.back:hover,.pbtn:hover,.obtn:hover,.vcard:hover{transform:none;box-shadow:none}
+  .tcard:hover{border-color:var(--line)}
+  .scard.speaking{box-shadow:0 0 0 2px var(--green)}
+  .vcard.sel{box-shadow:0 0 0 2px var(--green)}
+}
+@media (max-width:640px){
+  .wrap{padding:0 16px 48px}
+  .intro{margin-top:26px}
+  .brand h1{font-size:26px}
+  .logo{width:48px;height:48px}
+  .top{padding:20px 0 18px}
+  .scard .eng{font-size:26px}
+  .thead h2{font-size:23px}
+  .stat b{font-size:26px}
+  .panel{padding:18px}
+}
+@media (max-width:520px){
+  .themes,.sents{grid-template-columns:1fr}
+  .top-btns{width:100%}
+  .tbtn{flex:1;justify-content:center;padding:0 6px;font-size:15px;gap:4px}
+  .tcard .ico{width:70px;height:70px}
+  .scard{padding:18px 16px 16px}
+  .abtn{padding:0 11px}
+  .stats{gap:8px}
+  .stat{padding:12px 6px}
+  .cal{padding:12px}
+  .grid7{gap:4px}
+  .day{font-size:15px;border-radius:10px}
+}
+</style>
+</head>
+<body>
+<div class="wrap" id="app"></div>
+<div class="toast" id="toast"></div>
+<script>
+/* ===== 그림(SVG) : 크림·브라운·그린 3색 ===== */
+const C='#FBF7EC',B='#5C3D2E',G='#2F4F3A',BG='#F5EEDC';
+const ICONS={
+ meet:`<svg viewBox="0 0 120 120"><circle cx="60" cy="60" r="56" fill="${BG}" stroke="${B}" stroke-width="2"/>
+  <circle cx="42" cy="46" r="12" fill="${B}"/><path d="M22 98c0-17 9-28 20-28s20 11 20 28z" fill="${B}"/>
+  <path d="M28 76L16 54" stroke="${B}" stroke-width="7" stroke-linecap="round"/>
+  <circle cx="80" cy="46" r="12" fill="${G}"/><path d="M60 98c0-17 9-28 20-28s20 11 20 28z" fill="${G}"/>
+  <path d="M92 76L104 54" stroke="${G}" stroke-width="7" stroke-linecap="round"/>
+  <path d="M61 30c-5-4-6-8-3-10 2-1 3 0 3 1 0-1 1-2 3-1 3 2 2 6-3 10z" fill="${G}"/></svg>`,
+ sights:`<svg viewBox="0 0 120 120"><circle cx="60" cy="60" r="56" fill="${BG}" stroke="${B}" stroke-width="2"/>
+  <path d="M38 40Q46 34 49 25H71Q74 34 82 40Z" fill="${G}"/>
+  <path d="M14 60Q30 56 36 40H84Q90 56 106 60Q60 52 14 60Z" fill="${B}"/>
+  <rect x="30" y="60" width="60" height="6" fill="${B}"/>
+  <rect x="35" y="66" width="6" height="22" fill="${G}"/><rect x="51" y="66" width="6" height="22" fill="${G}"/>
+  <rect x="63" y="66" width="6" height="22" fill="${G}"/><rect x="79" y="66" width="6" height="22" fill="${G}"/>
+  <rect x="22" y="88" width="76" height="9" rx="2" fill="${B}"/></svg>`,
+ food:`<svg viewBox="0 0 120 120"><circle cx="60" cy="60" r="56" fill="${BG}" stroke="${B}" stroke-width="2"/>
+  <path d="M74 18L98 54" stroke="${G}" stroke-width="5" stroke-linecap="round"/>
+  <path d="M84 16L104 50" stroke="${G}" stroke-width="5" stroke-linecap="round"/>
+  <ellipse cx="38" cy="57" rx="11" ry="6" fill="${G}"/><ellipse cx="82" cy="57" rx="11" ry="6" fill="${G}"/>
+  <circle cx="60" cy="54" r="12" fill="${C}" stroke="${B}" stroke-width="2"/><circle cx="60" cy="54" r="5" fill="${B}"/>
+  <path d="M20 60H100A40 34 0 0 1 20 60Z" fill="${B}"/>
+  <path d="M30 70H90" stroke="${C}" stroke-width="3" stroke-linecap="round" opacity=".6"/>
+  <rect x="46" y="92" width="28" height="7" rx="3" fill="${B}"/></svg>`,
+ walk:`<svg viewBox="0 0 120 120"><circle cx="60" cy="60" r="56" fill="${BG}" stroke="${B}" stroke-width="2"/>
+  <rect x="82" y="44" width="7" height="30" fill="${B}"/><circle cx="85.5" cy="38" r="17" fill="${G}"/>
+  <circle cx="34" cy="34" r="9" fill="${C}" stroke="${B}" stroke-width="2"/>
+  <rect x="12" y="74" width="96" height="7" fill="${B}"/>
+  <path d="M20 81q12-15 24 0M48 81q12-15 24 0M76 81q12-15 24 0" fill="none" stroke="${B}" stroke-width="5"/>
+  <path d="M18 98q8-6 16 0t16 0t16 0t16 0t16 0" fill="none" stroke="${G}" stroke-width="5" stroke-linecap="round"/></svg>`,
+ trend:`<svg viewBox="0 0 120 120"><circle cx="60" cy="60" r="56" fill="${BG}" stroke="${B}" stroke-width="2"/>
+  <rect x="38" y="12" width="40" height="96" rx="6" fill="${B}"/>
+  <rect x="44" y="18" width="28" height="18" rx="3" fill="${C}"/><rect x="44" y="40" width="28" height="18" rx="3" fill="${C}"/>
+  <rect x="44" y="62" width="28" height="18" rx="3" fill="${C}"/><rect x="44" y="84" width="28" height="18" rx="3" fill="${C}"/>
+  <circle cx="58" cy="27" r="5" fill="${G}"/><circle cx="58" cy="49" r="5" fill="${G}"/>
+  <circle cx="58" cy="71" r="5" fill="${G}"/><circle cx="58" cy="93" r="5" fill="${G}"/>
+  <path d="M95 44c-10-7-12-16-6-19 3-2 6 0 6 3 0-3 3-5 6-3 6 3 4 12-6 19z" fill="${G}"/></svg>`
+};
+const LOGO=`<svg viewBox="0 0 32 32"><path d="M16 3c-5.5 0-10 4.3-10 9.7C6 20 16 29 16 29s10-9 10-16.3C26 7.3 21.5 3 16 3z" fill="${C}"/>
+  <path d="M16 17.5c-3-2.2-4-4.4-2.6-5.6 1-.8 2.1-.3 2.6.6.5-.9 1.6-1.4 2.6-.6 1.4 1.2.4 3.4-2.6 5.6z" fill="${G}"/></svg>`;
+const SPK=`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9v6h4l5 4V5L8 9H4z" fill="currentColor"/><path d="M16.5 8.5a5 5 0 0 1 0 7M19 6a8.5 8.5 0 0 1 0 12"/></svg>`;
+const STOP=`<svg viewBox="0 0 24 24"><rect x="6" y="6" width="12" height="12" rx="2" fill="currentColor"/></svg>`;
+
+
+/* ===== 문장 데이터 ===== */
+const THEMES=[
+ {id:'meet',ko:'만남·하루 일정',en:'Meeting & Today\'s Plan',desc:'반갑게 맞이하고, 일정 소개하고, 지하철로 이동해요',items:[
+  ['Welcome to Seoul! How was your flight?','서울에 온 걸 환영해요! 비행기 타고 오는 건 어땠어요?'],
+  ['I\'ll be your guide for today.','오늘은 제가 가이드를 해 줄게요.'],
+  ['Here\'s our plan for the day.','오늘 일정은 이래요.'],
+  ['We\'ll see a palace in the morning and the river at night.','아침엔 궁궐 보고, 밤엔 한강 보러 가요.'],
+  ['Is there anything you really want to see?','꼭 보고 싶은 곳 있어요?'],
+  ['Let\'s take the subway. It\'s fast and cheap.','지하철 타요. 빠르고 싸거든요.'],
+  ['You can use this transportation card.','이 교통카드 쓰면 돼요.'],
+  ['Just tap it here when you get on.','탈 때 여기에 대기만 하면 돼요.'],
+  ['We need to transfer at the next station.','다음 역에서 갈아타야 해요.'],
+  ['It takes about twenty minutes from here.','여기서 20분쯤 걸려요.'],
+  ['Let me know if you get tired.','힘들면 말해 줘요.'],
+  ['Stay close to me. It\'s very crowded here.','저랑 가까이 있어요. 여기 사람이 정말 많아요.']]},
+ {id:'sights',ko:'서울 명소',en:'Famous Places',desc:'경복궁·북촌·인사동·남산타워를 소개하고 사진 찍어 줘요',items:[
+  ['This is Gyeongbokgung, the main palace of the Joseon Dynasty.','여기가 조선 시대 으뜸 궁궐인 경복궁이에요.'],
+  ['It was built more than 600 years ago.','600년도 더 전에 지어졌어요.'],
+  ['If you wear a hanbok, you can get in for free.','한복을 입으면 무료로 들어갈 수 있어요.'],
+  ['The changing of the guard starts at ten.','수문장 교대식이 10시에 시작해요.'],
+  ['Bukchon is a village of traditional Korean houses.','북촌은 한옥이 모여 있는 마을이에요.'],
+  ['People actually live here, so let\'s keep our voices down.','실제로 사람들이 사는 곳이라 조용히 다녀요.'],
+  ['Insadong is famous for traditional crafts and tea houses.','인사동은 전통 공예품이랑 찻집으로 유명해요.'],
+  ['We can take a cable car up to Namsan Tower.','남산타워까지 케이블카 타고 올라갈 수 있어요.'],
+  ['You can see the whole city from the top.','꼭대기에서 서울이 한눈에 보여요.'],
+  ['Couples hang love locks on the fence here.','여기 울타리에 연인들이 사랑의 자물쇠를 걸어요.'],
+  ['Would you like me to take a picture of you?','사진 찍어 줄까요?'],
+  ['Stand over there. The palace will be right behind you.','저기 서 봐요. 궁궐이 바로 뒤에 나오게요.']]},
+ {id:'food',ko:'맛집·한국 음식',en:'Korean Food',desc:'메뉴 설명, 매운 정도 묻기, 먹는 법, 계산까지',items:[
+  ['Are you okay with spicy food?','매운 음식 괜찮아요?'],
+  ['This place is famous for its bibimbap.','여기는 비빔밥으로 유명한 집이에요.'],
+  ['Mix everything together with the red pepper paste.','고추장 넣고 다 같이 비벼요.'],
+  ['These side dishes are free, and you can get more.','반찬은 공짜고, 더 달라고 해도 돼요.'],
+  ['Korean barbecue is cooked right at the table.','한국식 고기는 식탁에서 바로 구워 먹어요.'],
+  ['Wrap the meat in a lettuce leaf like this.','이렇게 상추에 고기를 싸 먹어요.'],
+  ['Is there anything you can\'t eat?','못 먹는 음식 있어요?'],
+  ['Let\'s try some street food at Gwangjang Market.','광장시장에서 길거리 음식 먹어 봐요.'],
+  ['This is tteokbokki, spicy rice cakes.','이건 떡볶이예요. 매콤한 떡 요리예요.'],
+  ['In Korea, you don\'t need to leave a tip.','한국에서는 팁 안 줘도 돼요.'],
+  ['You pay at the counter on the way out.','나갈 때 계산대에서 계산해요.'],
+  ['It\'s my treat today.','오늘은 제가 살게요.']]},
+ {id:'walk',ko:'산책 코스',en:'Walking Courses',desc:'청계천·덕수궁 돌담길·한강공원을 함께 걸어요',items:[
+  ['Let\'s take a walk along Cheonggyecheon Stream.','청계천 따라 걸어 봐요.'],
+  ['This stream used to be covered by a highway.','이 개천은 예전에 고가도로로 덮여 있었어요.'],
+  ['The stone wall road at Deoksugung is perfect for a walk.','덕수궁 돌담길은 산책하기 딱 좋아요.'],
+  ['The leaves turn yellow and red in the fall.','가을엔 나뭇잎이 노랗고 빨갛게 물들어요.'],
+  ['Hangang Park is where locals go to relax.','한강공원은 서울 사람들이 쉬러 가는 곳이에요.'],
+  ['You can rent a bike here by the hour.','여기서 시간 단위로 자전거를 빌릴 수 있어요.'],
+  ['Let\'s order fried chicken and eat by the river.','치킨 시켜서 강가에서 먹어요.'],
+  ['Can you believe they deliver food to the park?','공원까지 배달해 준다니 신기하죠?'],
+  ['Banpo Bridge has a rainbow fountain show at night.','반포대교에서는 밤에 무지개 분수 쇼를 해요.'],
+  ['Let\'s sit on that bench and take a break.','저 벤치에 앉아서 좀 쉬어요.'],
+  ['It\'s a little chilly. Do you want my jacket?','좀 쌀쌀하네요. 제 겉옷 입을래요?'],
+  ['Watch your step. The road is slippery.','발밑 조심해요. 길이 미끄러워요.']]},
+ {id:'trend',ko:'한국의 유행',en:'Korean Trends',desc:'K-팝, 네컷 사진, 편의점, 화장품, 카페 문화',items:[
+  ['Have you heard of K-pop groups like BTS?','BTS 같은 K-팝 그룹 들어 봤어요?'],
+  ['Let\'s take photos at a four-cut photo booth.','네컷 사진 찍으러 가요.'],
+  ['You can pick fun props like hats and glasses.','모자나 안경 같은 재밌는 소품을 고를 수 있어요.'],
+  ['Korean convenience stores have almost everything.','한국 편의점엔 웬만한 건 다 있어요.'],
+  ['Try this banana milk. Everyone loves it.','이 바나나우유 마셔 봐요. 다들 좋아해요.'],
+  ['Many tourists buy Korean skincare products.','관광객들이 한국 화장품을 많이 사 가요.'],
+  ['Sheet masks make great gifts for your friends.','마스크팩은 친구들 선물로 좋아요.'],
+  ['Seoul has so many unique and pretty cafes.','서울엔 개성 있고 예쁜 카페가 정말 많아요.'],
+  ['People here love iced Americano, even in winter.','여기 사람들은 겨울에도 아이스 아메리카노를 좋아해요.'],
+  ['This drama is really popular on Netflix right now.','이 드라마 요즘 넷플릭스에서 엄청 인기예요.'],
+  ['Hongdae is full of young people and street performers.','홍대는 젊은 사람들이랑 길거리 공연으로 북적여요.'],
+  ['Let\'s go to Seongsu-dong. It\'s the trendiest area now.','성수동 가 봐요. 요즘 제일 뜨는 동네예요.']]}
+];
+
+
+const MIC=`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><rect x="9" y="3" width="6" height="11" rx="3" fill="currentColor"/><path d="M5.5 11a6.5 6.5 0 0 0 13 0M12 17.5V21M8.5 21h7"/></svg>`;
+const CHECK=`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>`;
+
+const app=document.getElementById('app');
+const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const rich=s=>esc(s).replace(/\*\*(.+?)\*\*/g,'<b>$1</b>').replace(/\*/g,'');
+const plain=s=>String(s).replace(/[*_`#]+/g,'').replace(/\s+/g,' ').trim();   // 소리 내어 읽을 글: 표시 기호 빼기
+const T=id=>THEMES.find(x=>x.id===id);
+
+/* ===== 저장 (기기마다 따로) ===== */
+const MEM={};
+const store={
+  get(k,d){try{const v=localStorage.getItem('sge_'+k);if(v!=null)return JSON.parse(v);}catch(e){}return k in MEM?MEM[k]:d;},
+  set(k,v){MEM[k]=v;try{localStorage.setItem('sge_'+k,JSON.stringify(v));}catch(e){}},
+  del(k){delete MEM[k];try{localStorage.removeItem('sge_'+k);}catch(e){}}
+};
+
+/* ===== 알림 ===== */
+let toastT;
+function toast(msg,ms=2600){const t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');
+  clearTimeout(toastT);toastT=setTimeout(()=>t.classList.remove('show'),ms);}
+
+/* ===== 시간 제한 있는 요청 ===== */
+async function tfetch(url,opts={},ms=30000){
+  const ac=new AbortController();const tm=setTimeout(()=>ac.abort(),ms);
+  try{return await fetch(url,{...opts,signal:ac.signal});}finally{clearTimeout(tm);}
+}
+
+/* ===== 📅 공부 기록 ===== */
+const pad=n=>String(n).padStart(2,'0');
+const dkey=d=>`${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.getDate())}`;
+function addStudy(){
+  const log=store.get('study',{});const k=dkey(new Date());const first=!log[k];
+  log[k]=(log[k]||0)+1;store.set('study',log);
+  if(first)setTimeout(()=>toast('📅 오늘 공부 도장이 찍혔어요!'),300);
+}
+
+/* ===== ⭐ 즐겨찾기 ===== */
+const favs=()=>store.get('favs',[]);
+const isFav=k=>favs().includes(k);
+function toggleFav(k){
+  let f=favs();const on=!f.includes(k);
+  f=on?[...f,k]:f.filter(x=>x!==k);store.set('favs',f);return on;
+}
+function favLabel(){const n=favs().length;return n?`<span class="badge">${n}</span> 즐겨찾기`:'⭐ 즐겨찾기';}
+
+/* ===== 🔊 듣기 (휴대폰 목소리 / ElevenLabs) ===== */
+const synth=window.speechSynthesis;let voice=null;let cur=null;  // cur={btn,audio}
+function pickVoice(){
+  if(!synth)return;const vs=synth.getVoices();
+  voice=vs.find(v=>/Google US English/i.test(v.name))||vs.find(v=>v.lang==='en-US')||
+        vs.find(v=>v.lang==='en-GB')||vs.find(v=>/^en/i.test(v.lang))||null;
+}
+if(synth){pickVoice();synth.onvoiceschanged=pickVoice;}
+
+function stopAll(){
+  try{synth&&synth.cancel();}catch(e){}
+  if(cur){if(cur.audio){try{cur.audio.pause();}catch(e){}}
+    const b=cur.btn;if(b&&b.isConnected){b.classList.remove('on');b.innerHTML=b.dataset.label;}
+    const c=b&&b.closest('.scard');if(c)c.classList.remove('speaking');}
+  cur=null;
+}
+function markPlaying(btn){
+  if(!btn)return;btn.dataset.label=btn.dataset.label||btn.innerHTML;
+  btn.classList.add('on');btn.innerHTML=STOP+'멈춤';
+  const c=btn.closest('.scard');if(c&&btn.classList.contains('listen'))c.classList.add('speaking');
+}
+function browserSpeak(text,btn){
+  if(!synth){toast('이 브라우저는 읽어 주기를 못 해요. 크롬에서 열어 주세요.');stopAll();return;}
+  const u=new SpeechSynthesisUtterance(text);
+  if(voice)u.voice=voice;u.lang=voice?voice.lang:'en-US';u.rate=0.95;
+  u.onend=u.onerror=()=>{if(cur&&cur.btn===btn)stopAll();};
+  synth.speak(u);
+}
+async function speak(text,btn){
+  text=plain(text);
+  if(cur&&btn&&cur.btn===btn){stopAll();return;}   // 같은 버튼 다시 누르면 멈춤
+  stopAll();cur={btn};markPlaying(btn);
+  const key=store.get('elKey','');const v=store.get('elVoice',null);
+  if(key&&v){
+    try{
+      const blob=await elAudio(text,v.id,key);
+      if(!cur||cur.btn!==btn)return;
+      const a=new Audio(URL.createObjectURL(blob));cur.audio=a;
+      a.onended=()=>{if(cur&&cur.btn===btn)stopAll();};
+      await a.play();return;
+    }catch(err){
+      if(!cur||cur.btn!==btn)return;
+      toast(err.message+' 휴대폰 목소리로 대신 읽어 드려요.',3600);
+    }
+  }
+  browserSpeak(text,btn);
+}
+
+/* ===== ElevenLabs ===== */
+const EL='https://api.elevenlabs.io/v1';
+function idb(){return new Promise((res,rej)=>{try{const r=indexedDB.open('sge-audio',1);
+  r.onupgradeneeded=()=>r.result.createObjectStore('a');r.onsuccess=()=>res(r.result);r.onerror=()=>rej(r.error);}catch(e){rej(e);}});}
+async function idbGet(k){try{const db=await idb();return await new Promise(r=>{const q=db.transaction('a').objectStore('a').get(k);q.onsuccess=()=>r(q.result||null);q.onerror=()=>r(null);});}catch(e){return null;}}
+async function idbSet(k,v){try{const db=await idb();db.transaction('a','readwrite').objectStore('a').put(v,k);}catch(e){}}
+async function elError(r){
+  let t='';try{t=await r.text();}catch(e){}
+  if(r.status===401){
+    if(/voices_read|missing_permissions|permission/i.test(t))return new Error('Key에 필요한 권한이 없어요. Text to Speech와 Voices(Read)를 둘 다 켜 주세요.');
+    return new Error('ElevenLabs Key가 맞지 않아요. 다시 붙여 넣어 주세요.');
+  }
+  if(r.status===402||/quota|credit/i.test(t))return new Error('ElevenLabs 크레딧(사용량)을 다 썼어요.');
+  if(r.status===429)return new Error('요청이 너무 많아요. 잠시 뒤 다시 해 주세요.');
+  return new Error(`원어민 목소리를 못 불러왔어요. (${r.status})`);
+}
+async function elAudio(text,vid,key){
+  const k=vid+'|'+text;const hit=await idbGet(k);if(hit)return hit;   // 한 번 받은 소리는 저장 → 크레딧 0
+  let r;
+  try{r=await tfetch(`${EL}/text-to-speech/${vid}?output_format=mp3_44100_128`,{method:'POST',
+    headers:{'xi-api-key':key,'Content-Type':'application/json','Accept':'audio/mpeg'},
+    body:JSON.stringify({text,model_id:'eleven_flash_v2_5'})},30000);}
+  catch(e){throw new Error(e.name==='AbortError'?'시간이 너무 오래 걸려요.':'인터넷 연결을 확인해 주세요.');}
+  if(!r.ok)throw await elError(r);
+  const b=await r.blob();idbSet(k,b);return b;
+}
+async function elVoices(key){
+  let r;
+  try{r=await tfetch(`${EL}/voices`,{headers:{'xi-api-key':key}},12000);}
+  catch(e){throw new Error(e.name==='AbortError'?'시간이 너무 오래 걸려요.':'인터넷 연결을 확인해 주세요.');}
+  if(!r.ok){const e=await elError(r);if(r.status===401)e.message='목소리 목록을 못 불러왔어요. Key에 Voices(Read) 권한이 켜져 있는지 확인해 주세요.';throw e;}
+  const j=await r.json();const all=j.voices||[];
+  const isEn=v=>{const L=v.labels||{};
+    if(/^en/i.test(L.language||''))return true;
+    if((v.verified_languages||[]).some(x=>/^en/i.test(x.language||'')))return true;
+    return /american|british|english|australian|irish|canadian|^us$|^uk$/i.test(L.accent||'');};
+  const en=all.filter(isEn);return en.length?en:all;
+}
+const KO={female:'여성',male:'남성',neutral:'중성',american:'미국식',british:'영국식',australian:'호주식',irish:'아일랜드식',
+  canadian:'캐나다식',young:'젊은 목소리',middle_aged:'중년',middle:'중년','middle aged':'중년',old:'어르신',
+  'en-us':'미국식','en-gb':'영국식'};
+function vmeta(v){const L=v.labels||{};const acc=L.accent||(v.verified_languages||[]).map(x=>x.accent||x.locale).find(Boolean)||'';
+  return [L.gender,acc,L.age].filter(Boolean).map(x=>KO[String(x).toLowerCase()]||x).join(' · ')||'영어 목소리';}
+
+/* ===== 💡 Gemini AI 선생님 ===== */
+const GAPI='https://generativelanguage.googleapis.com/v1beta';
+function gErr(status,j){
+  const raw=JSON.stringify(j||{});const st=(j&&j.error&&j.error.status)||status;
+  if(/ACCESS_TOKEN_TYPE_UNSUPPORTED/.test(raw))return `Key 형식이 맞지 않아요. 구글 AI 스튜디오에서 Key를 새로 만들어 주세요. (ACCESS_TOKEN_TYPE_UNSUPPORTED)`;
+  if(/API_KEY_INVALID|API key not valid/i.test(raw))return `Key가 틀린 것 같아요. 다시 복사해서 붙여 넣어 주세요. (API_KEY_INVALID)`;
+  if(/SERVICE_DISABLED/.test(raw))return `이 Key의 프로젝트에서 Gemini 사용이 꺼져 있어요. 구글 AI 스튜디오에서 새 Key를 만들어 주세요. (SERVICE_DISABLED)`;
+  if(/REFERRER|referer/i.test(raw))return `Key의 '웹사이트 제한' 주소가 이 앱 주소와 달라요. 제한을 풀거나 이 주소를 추가해 주세요. (API_KEY_HTTP_REFERRER_BLOCKED)`;
+  if(status===429)return `너무 자주 물어봤거나 오늘 쓸 양을 다 썼어요. 잠시 뒤 다시 해 주세요. (429 ${st})`;
+  return `AI 선생님 연결에 실패했어요. (${st})`;
+}
+async function gFetch(path,opts,ms){
+  const key=store.get('gKey','');if(!key)throw new Error('NO_KEY');
+  const go=async useQ=>{
+    const h={...(opts.headers||{})};let url=GAPI+path;
+    if(useQ)url+=(url.includes('?')?'&':'?')+'key='+encodeURIComponent(key);else h['x-goog-api-key']=key;
+    return tfetch(url,{...opts,headers:h},ms);
+  };
+  let r;
+  try{r=await go(false);if(r.status===401||r.status===403)r=await go(true);}
+  catch(e){throw new Error(e.name==='AbortError'?'시간이 너무 오래 걸려요. 인터넷을 확인해 주세요. (시간 초과)':'인터넷 연결을 확인해 주세요. (네트워크 오류)');}
+  return r;
+}
+async function pickModel(force){
+  if(!force){const m=store.get('gModel','');if(m)return m;}
+  const r=await gFetch('/models?pageSize=200',{},12000);
+  let j=null;try{j=await r.json();}catch(e){}
+  if(!r.ok)throw new Error(gErr(r.status,j));
+  const ok=(j.models||[]).filter(m=>(m.supportedGenerationMethods||[]).includes('generateContent'))
+    .map(m=>m.name).filter(n=>/gemini/i.test(n)&&!/image|tts|live|exp|thinking|preview|audio|embed|vision/i.test(n));
+  const pick=ok.find(n=>n==='models/gemini-flash-lite-latest')||ok.find(n=>/flash-lite/.test(n))||
+             ok.find(n=>n==='models/gemini-flash-latest')||ok.find(n=>/flash/.test(n))||ok[0];
+  if(!pick)throw new Error('쓸 수 있는 Gemini 모델을 못 찾았어요.');
+  store.set('gModel',pick);return pick;
+}
+async function gGenerate(prompt,retried){
+  const model=await pickModel(false);
+  const cfg={responseMimeType:'application/json',temperature:0.5,maxOutputTokens:700,thinkingConfig:{thinkingBudget:0}};
+  const send=c=>gFetch(`/${model}:generateContent`,{method:'POST',headers:{'Content-Type':'application/json'},
+    body:JSON.stringify({contents:[{role:'user',parts:[{text:prompt}]}],generationConfig:c})},30000);
+  let r=await send(cfg);
+  if(r.status===400){const c2={...cfg};delete c2.thinkingConfig;r=await send(c2);}
+  if(r.status===404&&!retried){store.del('gModel');await pickModel(true);return gGenerate(prompt,true);}
+  let j=null;try{j=await r.json();}catch(e){}
+  if(!r.ok)throw new Error(gErr(r.status,j));
+  const txt=(j.candidates?.[0]?.content?.parts||[]).map(p=>p.text||'').join('');
+  const m=txt.match(/\{[\s\S]*\}/);if(!m)throw new Error('AI 선생님 답을 읽지 못했어요. 다시 해 주세요.');
+  return JSON.parse(m[0]);
+}
+function aiPrompt(t,s){
+  return `너는 50대 한국인 영어 초중급 학습자를 돕는 다정한 영어 선생님이야.
+상황: 한국에 놀러 온 외국인 친구에게 내가 하루 동안 서울을 안내하고 있어. 지금 테마는 '${t.ko}'야.
+영어 문장: "${s[0]}"
+우리말 뜻: "${s[1]}"
+아래 JSON 형식만 출력해. 다른 말은 쓰지 마.
+{"point":"이 문장에서 꼭 기억할 핵심 표현과 쓰임을 쉬운 우리말 1~2문장으로","alts":[{"en":"같은 상황에서 쓸 수 있는 다른 영어 문장","ko":"자연스러운 우리말 뜻"},{"en":"...","ko":"..."},{"en":"...","ko":"..."}],"tip":"이 상황에서 외국인 친구에게 서울을 안내할 때 도움이 되는 실용적인 꿀팁 1문장"}
+규칙: 쉬운 존댓말(~해요), 문법 용어 쓰지 않기, 다른 영어 문장은 각각 12단어 이내. 우리말 설명(point, ko, tip)에서만 중요한 말을 **굵게** 하고, 영어 문장(en)에는 ** 같은 기호를 절대 넣지 마.`;
+}
+const aiMem=store.get('ai',{});const aiLive=new Map();
+function getAI(t,n){
+  const k=t.id+':'+n;
+  if(aiMem[k])return Promise.resolve(aiMem[k]);
+  if(aiLive.has(k))return aiLive.get(k);           // 같은 문장 요청은 하나로 합침
+  const p=gGenerate(aiPrompt(t,t.items[n])).then(d=>{
+    if(!d||!d.point)throw new Error('AI 선생님 답을 읽지 못했어요.');
+    aiMem[k]=d;store.set('ai',aiMem);aiLive.delete(k);return d;
+  }).catch(e=>{aiLive.delete(k);throw e;});
+  aiLive.set(k,p);return p;
+}
+function prefetchAI(t,n){if(store.get('gKey',''))getAI(t,n).catch(()=>{});}
+
+/* ===== 🎙 녹음 → 발음 채점 ===== */
+const SR=window.SpeechRecognition||window.webkitSpeechRecognition;
+const NUM={'1':'one','2':'two','3':'three','4':'four','5':'five','6':'six','7':'seven','8':'eight','9':'nine','10':'ten',
+  '11':'eleven','12':'twelve','15':'fifteen','20':'twenty','30':'thirty'};
+function normTok(w){
+  w=w.toLowerCase().replace(/[’‘`´]/g,"'").replace(/-/g,'').replace(/[^a-z0-9']/g,'').replace(/^'+|'+$/g,'');
+  return NUM[w]||w;
+}
+const normAll=s=>s.replace(/[’‘`´]/g,"'").replace(/(\w)-(\w)/g,'$1$2').split(/\s+/).map(normTok).filter(Boolean);
+function lcsMatch(a,b){
+  const n=a.length,m=b.length,dp=Array.from({length:n+1},()=>new Array(m+1).fill(0));
+  for(let i=n-1;i>=0;i--)for(let j=m-1;j>=0;j--)dp[i][j]=a[i]===b[j]?dp[i+1][j+1]+1:Math.max(dp[i+1][j],dp[i][j+1]);
+  const hit=new Set();let i=0,j=0;
+  while(i<n&&j<m){if(a[i]===b[j]){hit.add(i);i++;j++;}else if(dp[i+1][j]>=dp[i][j+1])i++;else j++;}
+  return hit;
+}
+function grade(orig,heardList){
+  const toks=orig.split(/\s+/);const o=toks.map(normTok);
+  let best=null;
+  for(const h of heardList){
+    const r=normAll(h);const hit=lcsMatch(o,r);const extra=Math.max(0,r.length-hit.size);
+    const pct=Math.min(100,Math.round(100*hit.size/(o.length+extra*0.5)));
+    if(!best||pct>best.pct)best={pct,hit,heard:h};
+  }
+  best.toks=toks;best.missed=toks.filter((_,i)=>!best.hit.has(i)).map(w=>w.replace(/[^A-Za-z0-9'’-]/g,'')).filter(Boolean);
+  return best;
+}
+const cheer=p=>p>=90?'완벽해요! 친구가 단번에 알아듣겠어요 🎉':p>=70?'아주 좋아요! 조금만 다듬으면 원어민 같아요 👍':
+  p>=40?'잘하고 있어요! 원어민 발음을 한 번 더 듣고 따라 해 봐요 🙂':'괜찮아요. 천천히, 또박또박 다시 말해 볼까요? 💪';
+
+let recNow=null;   // {rec,btn,card}
+function recError(code){
+  const inFrame=(()=>{try{return window.self!==window.top;}catch(e){return true;}})();
+  if(code==='not-allowed'||code==='service-not-allowed'){
+    return inFrame?'이 미리보기 화면에서는 마이크를 쓸 수 없어요. Netlify에 올린 주소(https)에서 열면 녹음이 돼요.'
+      :'마이크 사용이 막혀 있어요. 주소창 왼쪽 자물쇠(또는 ⓘ)를 눌러 마이크를 <b>허용</b>으로 바꿔 주세요.';
+  }
+  if(code==='network')return '인터넷 연결이 필요해요. 크롬은 인터넷으로 말소리를 알아들어요. 와이파이나 데이터를 확인해 주세요.';
+  if(code==='audio-capture')return '마이크를 찾지 못했어요. 이어폰이나 마이크 연결을 확인해 주세요.';
+  if(code==='no-speech')return '말소리가 들리지 않았어요. [녹음]을 누르고 휴대폰 가까이에서 또박또박 말해 주세요.';
+  if(code==='file')return '파일을 더블클릭해서 열면 녹음 채점이 막혀요. 서랍 속 편지처럼 주소가 없어서예요. Netlify 주소(https://…)에서 열어 주세요.';
+  if(code==='nosr')return '이 브라우저는 말소리 알아듣기를 못 해요. <b>크롬</b>(안드로이드·PC)에서 열어 주세요.';
+  return `녹음 중 문제가 생겼어요. 다시 해 볼까요? (${esc(code)})`;
+}
+function resetRecBtn(b){if(b&&b.isConnected){b.classList.remove('on');b.innerHTML=MIC+'녹음';}}
+function startRec(t,n,btn){
+  const card=btn.closest('.scard');const box=card.querySelector('.result');
+  if(recNow){const same=recNow.btn===btn;try{recNow.rec.stop();}catch(e){}if(same)return;}
+  stopAll();box.hidden=false;
+  if(location.protocol==='file:'){box.innerHTML=`<div class="errbox">${recError('file')}</div>`;return;}
+  if(!SR){box.innerHTML=`<div class="errbox">${recError('nosr')}</div>`;return;}
+  prefetchAI(t,n);
+  const rec=new SR();rec.lang='en-US';rec.interimResults=false;rec.maxAlternatives=5;rec.continuous=false;
+  let heard=[],err=null;
+  recNow={rec,btn,card};
+  btn.classList.add('on');btn.innerHTML='● 녹음 중';
+  box.innerHTML=`<div class="listening"><span class="bars"><i></i><i></i><i></i><i></i><i></i></span>듣고 있어요… 말해 보세요</div>`;
+  rec.onresult=e=>{for(const res of e.results)for(let a=0;a<res.length;a++)if(res[a].transcript)heard.push(res[a].transcript.trim());};
+  rec.onerror=e=>{err=e.error;};
+  rec.onend=()=>{
+    if(recNow&&recNow.rec===rec)recNow=null;resetRecBtn(btn);
+    if(heard.length){addStudy();showScore(t,n,box,grade(t.items[n][0],heard));}
+    else box.innerHTML=`<div class="errbox">${recError(err==='aborted'?'no-speech':(err||'no-speech'))}</div>`;
+  };
+  try{rec.start();}catch(e){recNow=null;resetRecBtn(btn);box.innerHTML=`<div class="errbox">${recError('not-allowed')}</div>`;}
+}
+function showScore(t,n,box,g){
+  const words=g.toks.map((w,i)=>`<span class="${g.hit.has(i)?'ok':'miss'}">${esc(w)}</span>`).join(' ');
+  box.innerHTML=`
+    <button class="abtn listen small" data-act="native">${SPK}원어민 발음 듣기</button>
+    <div class="scorebox"><div class="score">${g.pct}%</div><div class="barwrap"><i style="width:0"></i></div></div>
+    <div class="cheer">${cheer(g.pct)}</div>
+    <div class="words" lang="en">${words}</div>
+    <div class="legend">초록색: 잘 들린 단어 · 물결 밑줄: 다시 연습할 단어</div>
+    <div class="heard">크롬이 알아들은 말: “${esc(g.heard)}”</div>
+    <div class="ai"></div>`;
+  requestAnimationFrame(()=>{const i=box.querySelector('.barwrap i');if(i)i.style.width=g.pct+'%';});
+  renderAI(box.querySelector('.ai'),t,n,g.missed);
+}
+function renderAI(el,t,n,missed){
+  const uniq=[...new Set(missed)];
+  const pron=uniq.length
+    ?`<p>아래 단어가 잘 안 들렸어요. 눌러서 단어만 따로 들어 보세요.</p><div class="wbtns">${uniq.map(w=>`<button class="abtn listen small" data-act="word" data-word="${esc(w)}">${SPK}${esc(w)}</button>`).join('')}</div>`
+    :`<p>모든 단어가 또렷하게 들렸어요! 정말 잘했어요 👏</p>`;
+  el.innerHTML=`<h4>💡 AI 선생님 한마디</h4>
+    <div class="sec"><b class="t">① 발음 도움말</b>${pron}</div><div class="aimore"></div>`;
+  const more=el.querySelector('.aimore');
+  if(!store.get('gKey','')){
+    more.innerHTML=`<div class="sec"><p class="muted">⚙ <a href="#voice">설정</a>에서 Gemini Key를 넣으면 이 문장의 핵심, 다른 표현, 서울 안내 꿀팁도 알려 드려요.</p></div>`;return;
+  }
+  more.innerHTML=`<div class="sec muted"><span class="spin"></span>AI 선생님이 설명을 준비하고 있어요…</div>`;
+  getAI(t,n).then(d=>{
+    if(!more.isConnected)return;
+    const alts=(d.alts||[]).slice(0,3).map(a=>`<div class="alt"><button class="abtn listen small" data-act="word" data-word="${esc(plain(a.en))}" aria-label="듣기">${SPK}</button>
+      <div><div class="ae" lang="en">${rich(a.en)}</div><div class="ak">${rich(a.ko||'')}</div></div></div>`).join('');
+    more.innerHTML=`<div class="sec"><b class="t">② 이 문장 핵심</b><p>${rich(d.point||'')}</p></div>
+      ${alts?`<div class="sec"><b class="t">③ 이렇게도 말할 수 있어요</b>${alts}</div>`:''}
+      ${d.tip?`<div class="sec"><b class="t">④ 서울 안내 꿀팁</b><p>${rich(d.tip)}</p></div>`:''}`;
+  }).catch(e=>{if(more.isConnected)more.innerHTML=`<div class="sec"><p class="muted">${esc(e.message==='NO_KEY'?'Gemini Key가 없어요.':e.message)}</p></div>`;});
+}
+
+/* ===== 카드 ===== */
+function cardHTML(t,n){
+  const s=t.items[n];const k=t.id+':'+n;const f=isFav(k);
+  return `<article class="scard" data-t="${t.id}" data-n="${n}">
+    <div class="no">${n+1}</div>
+    <div class="eng" lang="en">${esc(s[0])}</div>
+    <div class="ko">${esc(s[1])}</div>
+    <div class="acts">
+      <button class="abtn listen" data-act="say">${SPK}듣기</button>
+      <button class="abtn rec" data-act="rec">${MIC}녹음</button>
+      <button class="abtn fav${f?' saved':''}" data-act="fav">${f?'★ 저장됨':'☆ 즐겨찾기'}</button>
+    </div>
+    <div class="result" hidden></div>
+  </article>`;
+}
+const backBtn=`<button class="back" data-go="">← 처음으로</button>`;
+
+/* ===== 화면들 ===== */
+const I_STAR=`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1L3.2 9.5l6.1-.9z"/></svg>`;
+const I_CAL=`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><rect x="3.5" y="5" width="17" height="15" rx="2.5"/><path d="M3.5 10h17M8 3v4M16 3v4"/></svg>`;
+const I_GEAR=`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="3.2"/><path d="M12 2.8v2.6M12 18.6v2.6M21.2 12h-2.6M5.4 12H2.8M18.5 5.5l-1.8 1.8M7.3 16.7l-1.8 1.8M18.5 18.5l-1.8-1.8M7.3 7.3L5.5 5.5"/></svg>`;
+function home(){
+  const n=favs().length;
+  app.innerHTML=`
+  <header class="hero">
+    <div class="badgewrap"><div class="strap"></div>
+      <div class="badgecard"><div class="logo">${LOGO}</div>
+        <div><div class="bk-eye">SEOUL 1-DAY GUIDE</div><h1>외국인 친구<br>서울 안내 영어</h1>
+        <div class="bk-hi" lang="en">Hi! I'm your guide today.</div></div></div></div>
+    <div class="hero-text"><h2>오늘 하루,<br>내가 서울 가이드!</h2>
+      <p>명찰 달고 출발해 볼까요? 아래 테마를 고르면 바로 시작해요.</p></div>
+  </header>
+  <nav class="tiles">
+    <button class="tile" data-go="favorites" id="favBtn"><span class="ic">${I_STAR}${n?`<span class="num">${n}</span>`:''}</span>
+      <span><b>즐겨찾기</b><small>저장한 문장 모아 보기</small></span></button>
+    <button class="tile" data-go="calendar"><span class="ic">${I_CAL}</span><span><b>공부 달력</b><small>공부 도장 확인하기</small></span></button>
+    <button class="tile" data-go="voice"><span class="ic">${I_GEAR}</span><span><b>설정</b><small>목소리·AI 선생님</small></span></button>
+  </nav>
+  <section class="intro"><h2>어디부터 안내해 볼까요?</h2>
+    <p>아침에 만나서 저녁까지, 하루 순서대로 5개 테마를 준비했어요.</p></section>
+  <section class="themes">${THEMES.map((t,i)=>`
+    <button class="tcard" data-go="${t.id}">
+      <div class="ico">${ICONS[t.id]}</div>
+      <div><div class="num">테마 ${i+1}</div><h3>${esc(t.ko)}</h3><div class="en">${esc(t.en)}</div>
+        <div class="desc">${esc(t.desc)}</div><span class="count">${t.items.length}문장</span></div>
+    </button>`).join('')}</section>`;
+}
+function theme(t){
+  const i=THEMES.indexOf(t);
+  app.innerHTML=`
+  <header class="thead">${backBtn}
+    <div class="ico">${ICONS[t.id]}</div>
+    <div class="ttitle"><div class="en">테마 ${i+1} · ${esc(t.en)}</div><h2>${esc(t.ko)}</h2></div>
+  </header>
+  <section class="sents">${t.items.map((_,n)=>cardHTML(t,n)).join('')}</section>
+  <p class="tip">🔊 듣기를 한 번 더 누르면 멈춰요 · 🎙 녹음은 말을 멈추면 자동으로 점수가 나와요</p>`;
+}
+function favorites(){
+  const f=favs();
+  const groups=THEMES.map(t=>({t,ns:t.items.map((_,n)=>n).filter(n=>f.includes(t.id+':'+n))})).filter(g=>g.ns.length);
+  app.innerHTML=`
+  <header class="thead">${backBtn}<div class="bigemo">⭐</div>
+    <div class="ttitle"><div class="en">My Favorites</div><h2>즐겨찾기 ${f.length?`<span style="color:var(--green)">${f.length}</span>`:''}</h2></div></header>
+  ${groups.length?groups.map(g=>`<section class="group">
+      <div class="ghead"><div class="ico">${ICONS[g.t.id]}</div><h3>${esc(g.t.ko)}</h3></div>
+      <div class="sents">${g.ns.map(n=>cardHTML(g.t,n)).join('')}</div></section>`).join('')
+    :`<div class="empty"><p>아직 저장한 문장이 없어요.</p>
+      <div class="sub">외우고 싶은 문장에서 <b>☆ 즐겨찾기</b>를 누르면 책갈피처럼 여기에 모여요.</div>
+      <button class="pbtn" data-go="">테마 고르러 가기</button></div>`}
+  <p class="tip">즐겨찾기는 이 기기(휴대폰·PC)에만 따로 저장돼요.</p>`;
+}
+let calY,calM;
+function calendar(){
+  const now=new Date();if(calY==null){calY=now.getFullYear();calM=now.getMonth();}
+  const log=store.get('study',{});const days=Object.keys(log).filter(k=>log[k]>0);
+  const ym=`${now.getFullYear()}-${pad(now.getMonth()+1)}`;
+  const monthCnt=days.filter(k=>k.startsWith(ym)).length;
+  let streak=0;const d=new Date(now);if(!log[dkey(d)])d.setDate(d.getDate()-1);
+  while(log[dkey(d)]){streak++;d.setDate(d.getDate()-1);}
+  const first=new Date(calY,calM,1).getDay(),last=new Date(calY,calM+1,0).getDate();
+  const isNow=calY===now.getFullYear()&&calM===now.getMonth();
+  let cells='';for(let i=0;i<first;i++)cells+=`<div class="day blank"></div>`;
+  for(let dd=1;dd<=last;dd++){
+    const k=`${calY}-${pad(calM+1)}-${pad(dd)}`;const c=log[k]||0;const today=k===dkey(now);
+    cells+=c?`<button class="day done${today?' today':''}" data-day="${calM+1}월 ${dd}일" data-c="${c}">${dd}${CHECK}</button>`
+            :`<div class="day${today?' today':''}">${dd}</div>`;
+  }
+  app.innerHTML=`
+  <header class="thead">${backBtn}<div class="bigemo">📅</div>
+    <div class="ttitle"><div class="en">Study Calendar</div><h2>공부 달력</h2></div></header>
+  <div class="stats">
+    <div class="stat"><b>${monthCnt}일</b><span>이번 달</span></div>
+    <div class="stat"><b>${streak}일</b><span>연속 공부</span></div>
+    <div class="stat"><b>${days.length}일</b><span>지금까지</span></div>
+  </div>
+  <div class="cal">
+    <div class="calnav"><button data-cal="-1" aria-label="이전 달">‹</button><h3>${calY}년 ${calM+1}월</h3>
+      <button data-cal="1" aria-label="다음 달" ${isNow?'disabled':''}>›</button></div>
+    <div class="grid7">${['일','월','화','수','목','금','토'].map((w,i)=>`<div class="dow${i===0?' sun':''}">${w}</div>`).join('')}${cells}</div>
+  </div>
+  <p class="calnote">🔊 듣기나 🎙 녹음을 하면 그날 도장이 찍혀요. 초록 칸을 누르면 그날 공부 횟수가 나와요.</p>`;
+}
+function settings(){
+  const ek=store.get('elKey',''),gk=store.get('gKey',''),v=store.get('elVoice',null);
+  app.innerHTML=`
+  <header class="thead">${backBtn}<div class="bigemo">⚙</div>
+    <div class="ttitle"><div class="en">Settings</div><h2>설정</h2></div></header>
+
+  <section class="panel">
+    <h3>🗣 원어민 목소리 (ElevenLabs)</h3>
+    <p class="help">Key를 넣으면 휴대폰 기본 목소리 대신 진짜 사람 같은 원어민 목소리로 들을 수 있어요. Key를 만들 때 <b>Text to Speech</b>와 <b>Voices(Read)</b> 권한을 둘 다 켜 주세요.</p>
+    <div class="krow">
+      <input id="elKey" type="password" placeholder="ElevenLabs API Key 붙여넣기" value="${esc(ek)}" autocomplete="off">
+      <button class="obtn" data-eye="elKey">보기</button>
+      <button class="pbtn" id="elSave">저장</button>
+      <button class="obtn" id="elDel">지우기</button>
+    </div>
+    <div class="nowvoice">지금 목소리: <b>${v?esc(v.name)+' (원어민)':'휴대폰 기본 목소리'}</b>
+      ${v?` <button class="obtn" id="elReset" style="height:36px;margin-left:6px">기본 목소리로</button>`:''}</div>
+    <div class="status" id="elStatus"></div>
+    <div class="vlist" id="vlist"></div>
+  </section>
+
+  <section class="panel">
+    <h3>💡 AI 선생님 (Gemini)</h3>
+    <p class="help">Key를 넣으면 녹음 점수 아래에 이 문장의 핵심, 다른 표현 3개, 서울 안내 꿀팁이 자동으로 나와요. 구글 AI 스튜디오에서 만든 새 Key는 <b>AQ.</b>로 시작하는 게 정상이에요.</p>
+    <div class="krow">
+      <input id="gKey" type="password" placeholder="Gemini API Key 붙여넣기" value="${esc(gk)}" autocomplete="off">
+      <button class="obtn" data-eye="gKey">보기</button>
+      <button class="pbtn green" id="gSave">저장하고 연결 확인</button>
+      <button class="obtn" id="gDel">지우기</button>
+    </div>
+    <div class="status" id="gStatus">${gk?'저장된 Key가 있어요.':''}</div>
+  </section>
+
+  <section class="panel">
+    <h3>📱 꼭 알아 두세요</h3>
+    <ul class="note">
+      <li>Key는 이 앱 파일 안에 들어가지 않고, <b>지금 쓰는 기기에만</b> 저장돼요. 그래서 주소를 수강생에게 나눠 줘도 안전해요.</li>
+      <li>즐겨찾기·공부 달력·Key는 기기마다 따로 저장돼요. 휴대폰에서도 쓰려면 휴대폰에서 한 번 더 넣어 주세요.</li>
+      <li>PC에서 만든 Key는 카카오톡 ‘나에게 보내기’로 휴대폰에 보내 붙여 넣고, 메시지는 지워 주세요.</li>
+      <li>녹음·원어민 목소리·AI 선생님은 Netlify 주소(https://…)에서 열어야 동작해요.</li>
+    </ul>
+  </section>`;
+  if(ek)loadVoices();
+}
+async function loadVoices(){
+  const st=document.getElementById('elStatus'),list=document.getElementById('vlist');if(!st)return;
+  const key=store.get('elKey','');if(!key)return;
+  st.className='status';st.innerHTML='<span class="spin"></span>영어 목소리 목록을 불러오는 중이에요…';
+  try{
+    const vs=await elVoices(key);if(!list.isConnected)return;
+    const sel=store.get('elVoice',null);
+    st.className='status good';st.textContent=`영어 목소리 ${vs.length}개를 찾았어요. ▶ 미리듣기는 크레딧이 들지 않아요.`;
+    list.innerHTML=vs.map(v=>`<div class="vcard${sel&&sel.id===v.voice_id?' sel':''}" data-vid="${esc(v.voice_id)}" data-vname="${esc(v.name)}">
+      <h4>${esc(v.name.split(' - ')[0])}</h4><div class="vmeta">${esc(vmeta(v))}</div>
+      <div class="krow">${v.preview_url?`<button class="obtn" data-prev="${esc(v.preview_url)}" style="height:38px">▶ 미리듣기</button>`:''}
+      <button class="pbtn" data-pick style="height:38px;font-size:15px">${sel&&sel.id===v.voice_id?'✔ 선택됨':'이 목소리로 선택'}</button></div></div>`).join('');
+  }catch(e){st.className='status bad';st.textContent=e.message;list.innerHTML='';}
+}
+
+/* ===== 길 안내 (휴대폰 뒤로 가기 동작) ===== */
+function route(){
+  stopAll();if(recNow){try{recNow.rec.abort();}catch(e){}recNow=null;}
+  const id=location.hash.slice(1);const t=T(id);
+  if(t)theme(t);else if(id==='favorites')favorites();else if(id==='calendar'){calY=null;calendar();}
+  else if(id==='voice')settings();else home();
+  window.scrollTo(0,0);
+}
+
+/* ===== 버튼 처리 ===== */
+let prevAudio=null;
+app.addEventListener('click',async e=>{
+  const go=e.target.closest('[data-go]');
+  if(go){const h=go.dataset.go;if(('#'+h)===location.hash||(!h&&!location.hash))route();else location.hash=h;return;}
+  const act=e.target.closest('[data-act]');
+  if(act){
+    const card=act.closest('.scard');const t=T(card.dataset.t);const n=+card.dataset.n;const s=t.items[n];
+    const a=act.dataset.act;
+    if(a==='say'){speak(s[0],act);addStudy();prefetchAI(t,n);}
+    else if(a==='native')speak(s[0],act);
+    else if(a==='word')speak(act.dataset.word,act);
+    else if(a==='rec')startRec(t,n,act);
+    else if(a==='fav'){
+      const on=toggleFav(t.id+':'+n);
+      if(location.hash==='#favorites'&&!on){card.classList.add('leaving');setTimeout(favorites,350);toast('즐겨찾기에서 뺐어요.');return;}
+      act.classList.toggle('saved',on);act.textContent=on?'★ 저장됨':'☆ 즐겨찾기';
+      toast(on?'⭐ 즐겨찾기에 저장했어요.':'즐겨찾기에서 뺐어요.');
+    }
+    return;
+  }
+  const cal=e.target.closest('[data-cal]');
+  if(cal&&!cal.disabled){calM+=+cal.dataset.cal;if(calM<0){calM=11;calY--;}if(calM>11){calM=0;calY++;}calendar();return;}
+  const day=e.target.closest('[data-day]');
+  if(day){toast(`${day.dataset.day}: ${day.dataset.c}번 공부했어요 👏`);return;}
+  const eye=e.target.closest('[data-eye]');
+  if(eye){const inp=document.getElementById(eye.dataset.eye);const show=inp.type==='password';inp.type=show?'text':'password';eye.textContent=show?'숨기기':'보기';return;}
+  const prev=e.target.closest('[data-prev]');
+  if(prev){stopAll();try{if(prevAudio)prevAudio.pause();prevAudio=new Audio(prev.dataset.prev);await prevAudio.play();}catch(err){toast('미리듣기를 재생하지 못했어요.');}return;}
+  const pick=e.target.closest('[data-pick]');
+  if(pick){const vc=pick.closest('.vcard');store.set('elVoice',{id:vc.dataset.vid,name:vc.dataset.vname.split(' - ')[0]});
+    toast(`🗣 ${vc.dataset.vname.split(' - ')[0]} 목소리로 바꿨어요.`);settings();return;}
+  const id=e.target.id;
+  if(id==='elSave'){const k=document.getElementById('elKey').value.trim();if(!k){toast('Key를 붙여 넣어 주세요.');return;}
+    store.set('elKey',k);toast('저장했어요.');loadVoices();}
+  else if(id==='elDel'){store.del('elKey');store.del('elVoice');toast('ElevenLabs Key를 지웠어요.');settings();}
+  else if(id==='elReset'){store.del('elVoice');toast('휴대폰 기본 목소리로 돌아왔어요.');settings();}
+  else if(id==='gSave'){
+    const k=document.getElementById('gKey').value.trim();const st=document.getElementById('gStatus');
+    if(!k){toast('Key를 붙여 넣어 주세요.');return;}
+    store.set('gKey',k);store.del('gModel');st.className='status';st.innerHTML='<span class="spin"></span>연결을 확인하고 있어요…';
+    try{const m=await pickModel(true);st.className='status good';st.textContent=`연결됐어요! AI 선생님 준비 완료 (모델: ${m.replace('models/','')})`;}
+    catch(err){st.className='status bad';st.textContent=err.message==='NO_KEY'?'Key가 없어요.':err.message;}
+  }
+  else if(id==='gDel'){store.del('gKey');store.del('gModel');toast('Gemini Key를 지웠어요.');settings();}
+});
+window.addEventListener('hashchange',route);
+route();
+</script>
+</body>
+</html>
